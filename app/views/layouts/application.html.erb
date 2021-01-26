@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SessionLogin2</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
+    <% if logged_in? %>
+      <%= link_to "Profile", user2_path(current_user2.id) %>
+      <%= link_to "Logout", session_path(current_user2.id), method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user2_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
