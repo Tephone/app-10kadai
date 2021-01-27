@@ -2,6 +2,6 @@
 <p>メールアドレス: <%= @user2.email %></p>
 <p>
   <strong>Image:</strong>
-  <%= image_tag @user2.image.url %>
+  <%= image_tag (@user2.image.url) if @user2.image && @user2.image.url%>
 </p>
 <%= link_to 'edit', edit_user2_path %>

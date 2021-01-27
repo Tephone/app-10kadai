@@ -1,0 +1,11 @@
+<p>dd</p>
+<%= form_with(model: @blog, local: true, url: blogs_path) do |form|%>
+    <%= form.hidden_field :content%>
+    <%= form.hidden_field :image%>
+    <%= form.hidden_field :image_cache%>
+    <%= form.hidden_field :user2_id%>
+    <p><%= @blog.content%></p><br>
+    <p><%= image_tag(@blog.image.url, class:"images") if @blog.image && @blog.image.url %></p><br>
+    <%= form.submit "submit"%>
+    <%= form.submit "back", name: 'back' %>
+<% end %>
