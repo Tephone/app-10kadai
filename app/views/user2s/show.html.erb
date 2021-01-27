@@ -1,2 +1,7 @@
 <h1><%= @user2.name %>のページ</h1>
 <p>メールアドレス: <%= @user2.email %></p>
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @user2.image.url %>
+</p>
+<%= link_to 'edit', edit_user2_path %>

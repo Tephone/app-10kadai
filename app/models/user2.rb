@@ -4,4 +4,5 @@ class User2 < ApplicationRecord
     before_validation { email.downcase! } if 
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }
+    mount_uploader :image, ImageUploader
 end
