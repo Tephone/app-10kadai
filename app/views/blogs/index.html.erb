@@ -2,7 +2,6 @@
 <%= link_to 'お気に入り一覧', favorites_path%><br><br>
 
 <% @blogs.each do |blog| %>
-  <p class = "style1"></p>
   <td><%= blog.content %></td><br>        
   <td><%= image_tag(blog.image.url) if blog.image && blog.image.url %></td><br><br>
   <% if current_user2.id == blog.user2_id %>
@@ -10,6 +9,7 @@
   <td><%= link_to 'Destroy', blog_path(blog.id), class:"btn btn-default", method: :delete, data: { confirm: 'Are you sure?' }  %></td>
   <% end %>
   <td><%= link_to 'Show', blog_path(blog.id), class:"btn btn-default" %></td><br><br>
+  <p class = "style1"></p>
 <% end %>
 
 <br>
