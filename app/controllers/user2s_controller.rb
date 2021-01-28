@@ -12,6 +12,7 @@ class User2sController < ApplicationController
     end
     def show
         @user2 = User2.find(params[:id])
+        #@blog = Blog.find(params[:id])
     end
     def edit
         @user2 = User2.find(params[:id])

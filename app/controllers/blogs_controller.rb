@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :current_user_only_use, only: [:edit, :update, :destroy]
 
   # GET /blogs or /blogs.json
   def index
@@ -8,6 +9,7 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1 or /blogs/1.json
   def show
+    @favorite = current_user2.favorites.find_by(blog_id: @blog.id)
   end
 
   # GET /blogs/new
@@ -68,12 +70,16 @@ class BlogsController < ApplicationController
   end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
+  # Only allow a list of trusted parameters through.
+  def blog_params
+    params.require(:blog).permit(:content, :image, :image_cache, :user2_id)
+  end
+  def current_user_only_use
+    unless current_user2.id == @blog.user2_id
+      redirect_to blogs_path
     end
-
-    # Only allow a list of trusted parameters through.
-    def blog_params
-      params.require(:blog).permit(:content, :image, :image_cache, :user2_id)
-    end
+  end
 end

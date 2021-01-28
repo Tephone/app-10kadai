@@ -1,0 +1,7 @@
+<br><br>
+<% @favorites.each do |blog| %>
+    <%= blog.user2.name %><br>
+    <%= blog.content %><br>
+    <%= image_tag blog.image.url %><br>
+<% end%>
+<%= link_to '戻る', blogs_path%>

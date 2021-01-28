@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Blogs</h1>
-
+<%= link_to 'お気に入り一覧', favorites_path%>
 <table>
   <thead>
     <tr>
@@ -17,9 +17,11 @@
       <tr>
         <td><%= blog.content %></td>        
         <td><%= image_tag blog.image.url %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', blog_path(blog.id) %></td>
+        <% if current_user2.id == blog.user2_id %>
+        <td><%= link_to 'Edit', edit_blog_path(blog.id) if current_user2.id == blog.user2_id %></td>  
+        <td><%= link_to 'Destroy', blog_path(blog.id), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
