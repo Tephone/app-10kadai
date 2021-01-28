@@ -44,4 +44,10 @@
 
 .go_center {
     text-align: center ;
+    margin : 0 auto
   }
+
+  .go_center_image {
+    margin : 0 auto; 
+  }
+  

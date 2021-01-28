@@ -17,8 +17,8 @@
   <%= f.label :password %><br>
   <%= f.password_field :password %><br>
   <%= f.label :password_confirmation %><br>
-  <%= f.password_field :password_confirmation %><br><br>
+  <%= f.password_field :password_confirmation %><br>
   <%= f.label :image %><br>
-  <%= f.file_field :image %><br>
+  <%= f.file_field :image, class: "go_center_image"%><br>
   <%= f.submit "Create my account" %>
 <% end %>
