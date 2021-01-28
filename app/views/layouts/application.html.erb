@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="../../assets/stylesheets/bootstrap-social.css" rel="stylesheet">
     <title>SessionLogin2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -9,7 +10,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class = "wrapper">
+    <header>
+      <div><img src = '/black.jpeg', class = "img_hed"></div>
+    </header>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
@@ -20,6 +24,13 @@
       <%= link_to "Sign up", new_user2_path %>
       <%= link_to "Login", new_session_path %>
     <% end %>
-    <%= yield %>
+    <div class = "main_body">
+      <div class = "go_center">
+        <%= yield %>
+      </div>
+    </div>
+    <footer>
+      <!--<img src = '/fff.png', class = "img_foot"><-->
+    </footer>
   </body>
 </html>
