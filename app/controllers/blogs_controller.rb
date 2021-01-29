@@ -30,7 +30,7 @@ class BlogsController < ApplicationController
       else
     #respond_to do |format|
         if @blog.save
-          InstaMailer.insta_mail(@blog).deliver #メール
+          #InstaMailer.insta_mail(@blog).deliver #メール
             redirect_to blogs_path, notice: 'Picture was successfully created.'
           #format.html { redirect_to @blog, notice: "Blog was successfully created." }
           #format.json { render :show, status: :created, location: @blog }
