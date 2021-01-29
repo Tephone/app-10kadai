@@ -5,7 +5,8 @@ class User2sController < ApplicationController
     def create
         @user2 = User2.new(user2_params)
         if @user2.save
-            redirect_to user2_path(@user2.id)
+            #redirect_to user2_path(@user2.id)
+            redirect_to new_session_path
         else
             render :new
         end
