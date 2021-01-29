@@ -2,7 +2,7 @@
 <% @favorites.each do |blog| %>
     <%= blog.user2.name %><br>
     <%= blog.content %><br>
-    <%= image_tag blog.image.url %><br>
+    <%= image_tag(blog.image.url) if blog.image && blog.image.url %><br>
 <% end%>
 <br>
 <%= link_to '戻る', blogs_path, class:"btn btn-default"%>
